@@ -31,7 +31,7 @@ public class MatrixZ : MonoBehaviour
         if (Mathf.Abs(displacementZ) >= amplitude)
         {
             frequency *= -1.0f; // Invertir la frecuencia para cambiar la dirección del movimiento
-            startTime = Time.time; // Reiniciar el tiempo inicial para el nuevo ciclo de movimiento
+            
         }
     }
 }
