@@ -3,9 +3,9 @@ using UnityEngine;
 public class MatrixZ : MonoBehaviour
 {
     public float speed = 5.0f; // Velocidad de movimiento del enemigo
-    public float frequency = 1.0f; // Frecuencia de oscilación
-    public float amplitude = 2.0f; // Amplitud de oscilación
-
+    private float frequency = Mathf.PI * 2; // Frecuencia de oscilación
+    public float amplitude; // Amplitud de oscilación
+    public float number;
     private float startTime; // Tiempo inicial para calcular el desplazamiento
     private Matrix4x4 transformationMatrix; // Matriz de transformación para el movimiento
 
@@ -16,8 +16,9 @@ public class MatrixZ : MonoBehaviour
 
     private void Update()
     {
+        float Z = frequency * number;
         // Calcular el desplazamiento en el eje Z basado en el tiempo
-        float displacementZ = Mathf.Tan((Time.time - startTime) * frequency) * amplitude;
+        float displacementZ = Mathf.Cos((Time.time - startTime) * Z) * amplitude;
 
         // Crear la matriz de traslación con el desplazamiento horizontal
         Vector3 translation = new Vector3(0, 0.0f, displacementZ);
